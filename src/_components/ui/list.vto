@@ -1,0 +1,11 @@
+<li class="list" data-aos="fade-up" data-aos-delay="{{ i * 50 }}">
+  <time
+    class="list__info"
+    datetime="{{ data.created_at || data.doc_ca }}"
+  >{{ data.created_at || data.doc_ca |> date("MMM dd, yyyy") }}</time>
+  <span class="list__title">
+    <a href="/notes/{{ data.slug }}">
+      {{ data.title }}
+    </a>
+  </span>
+</li>

@@ -1,0 +1,22 @@
+index:
+  title: Emilio Romero
+  description: Desarrollador web con +3 años de experiencia.
+about:
+  name: Emilio Romero.
+  username: emrocode
+  email: hi@emroco.de
+metas:
+  lang: =lang
+  generator: true
+menu:
+  - key: Home
+    path: /
+  - key: Notas
+    path: /notes/
+profiles:
+  - platform: LinkedIn
+    url: https://linkedin.com/in/emrocode
+  - platform: GitHub
+    url: https://github.com/emrocode
+  - platform: CodePen
+    url: https://codepen.io/emrocode

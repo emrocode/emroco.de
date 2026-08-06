@@ -1,0 +1,50 @@
+name: Publish on GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: denoland/setup-deno@v2
+        with:
+          cache: true
+
+      - run: deno task build
+        env:
+          BASE_URL: ${{ secrets.BASE_URL }}
+          CTFL_ACCESS_TOKEN: ${{ secrets.CTFL_ACCESS_TOKEN }}
+          CTFL_HOST: ${{ secrets.CTFL_HOST }}
+          CTFL_SPACE_ID: ${{ secrets.CTFL_SPACE_ID }}
+          REMOTE_FILE_ID: ${{ secrets.REMOTE_FILE_ID }}
+          REMOTE_FILE_URL: ${{ secrets.REMOTE_FILE_URL }}
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: "dist"
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

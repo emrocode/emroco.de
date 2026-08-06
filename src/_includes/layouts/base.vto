@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- !fmt -->
+    <title>{{ title ? `${title} &middot; ${index.title}` : index.title }}</title>
+    <!-- icons -->
+    <link
+      rel="shortcut icon"
+      href="/media/img/favicon-256x256.png"
+      type="image/png"
+    />
+    <link
+      rel="shortcut icon"
+      href="/media/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <!-- preload fonts -->
+    <link
+      rel="preload"
+      href="/fonts/archivo-100-normal-400-900-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <!-- load assets -->
+    <link rel="stylesheet" href="/styles/neutralize.css" />
+    <link rel="stylesheet" href="/styles/globals.css" />
+    <link rel="stylesheet" href="/styles/prose.css" />
+    <link rel="stylesheet" href="/styles/fonts.css" />
+    <link rel="stylesheet" href="/styles/aos.css" />
+    <script src="/scripts/main.js"></script>
+    <!-- vercel analytics -->
+    <!-- !fmt -->
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+  </head>
+  <body>
+    {{ comp.header({ url }) }}
+    <main class="container">
+      <section data-page="true">
+        {{ content |> safe }}
+      </section>
+    </main>
+    {{ comp.footer() }}
+  </body>
+</html>

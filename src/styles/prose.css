@@ -1,0 +1,194 @@
+.prose {
+  --prose-max-width: 65ch;
+  max-width: var(--prose-max-width);
+  width: 100%;
+  line-height: 1.75;
+}
+
+.prose [class~="lead"] {
+  color: var(--ttcolor);
+  font-size: 1.25em;
+  line-height: 1.6;
+  margin: 1.2em 0;
+}
+
+.prose a:not(:has(svg)) {
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  color: var(--fgcolor);
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0.15rem;
+    left: 0;
+    width: 50%;
+    color: var(--bdcolor);
+    border-bottom: 1px solid currentColor;
+    transition: 200ms;
+  }
+}
+
+.prose a > svg {
+  max-width: 21px;
+}
+
+.prose a:hover:after {
+  width: 100%;
+  color: var(--fgcolor);
+}
+
+.prose strong,
+.prose b {
+  color: var(--fgcolor);
+  font-weight: 600;
+}
+
+.prose ol {
+  margin: 1.25em 0;
+  list-style-type: none;
+}
+
+.prose ol > li {
+  position: relative;
+  padding-left: 1.75em;
+}
+
+.prose ol > li::before {
+  content: counter(list-item) ".";
+  position: absolute;
+  font-weight: 400;
+  color: var(--ttcolor);
+  left: 0;
+}
+
+.prose ul {
+  margin: 1.25em 0;
+  list-style-type: none;
+}
+
+.prose ul > li {
+  position: relative;
+  padding-left: 1.75em;
+}
+
+.prose ul > li::before {
+  content: "";
+  position: absolute;
+  background-color: var(--ttcolor);
+  border-radius: 50%;
+  width: 0.375em;
+  height: 0.375em;
+  top: 0.6875em;
+  left: 0.25em;
+}
+
+.prose hr {
+  border: 0;
+  border-top: 1px solid var(--bdcolor);
+  margin: 3em 0;
+}
+
+.prose blockquote {
+  font-weight: 500;
+  font-style: italic;
+  color: inherit;
+  border-left: 0.25rem solid var(--bdcolor);
+  quotes: "\201C" "\201D" "\2018" "\2019";
+  margin: 1.6em 0;
+  padding-left: 1em;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  color: var(--fgcolor);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+.prose h1 {
+  font-weight: 700;
+  font-size: clamp(var(--font-xl), 7vw, var(--headline-4));
+  margin-top: 0;
+}
+
+.prose h2 {
+  font-weight: 700;
+  font-size: clamp(var(--font-lg), 7vw, var(--font-xl));
+  margin-top: 2em;
+}
+
+.prose h3 {
+  font-size: clamp(var(--font-md), 7vw, var(--font-lg));
+}
+
+.prose code {
+  margin: -0.2em 0;
+  padding: 0.2em 0.3em;
+  color: var(--fgcolor);
+  background-color: var(--sdcolor);
+  border-radius: var(--border-sm);
+  font-family: var(--font-mono);
+  font-size: 90%;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  white-space-collapse: break-spaces;
+}
+
+.prose pre:has(> code[class*="language-"]) {
+  padding: 1em;
+  font-size: 90%;
+}
+
+.prose pre code {
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+  &:before,
+  &:after {
+    content: none;
+  }
+}
+
+.prose table {
+  table-layout: auto;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2em 0;
+  font-size: 95%;
+}
+
+.prose thead {
+  font-weight: 600;
+  color: var(--fgcolor);
+  border-bottom: 1px solid var(--bdcolor);
+}
+
+.prose th,
+.prose td {
+  padding: 0.6em;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.prose tbody tr {
+  border-bottom: 1px solid var(--bdcolor);
+}
+
+.prose img,
+.prose video {
+  margin: 2em 0;
+  border-radius: var(--border-md);
+}
+
+.prose p {
+  margin: 1.25em 0;
+  color: var(--ttcolor);
+}
+
+.prose em {
+  font-style: oblique;
+}

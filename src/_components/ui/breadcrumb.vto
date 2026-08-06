@@ -1,0 +1,17 @@
+{{ set crumbs = nav.breadcrumb(url) }}
+
+{{ if crumbs.length >= 3 }}
+  <ul class="breadcrumb">
+    {{ for item of crumbs }}
+      <li class="breadcrumb__item">
+        {{ if item.data }}
+          <a href="{{ item.data.url }}">
+            {{ item.data.title || item.data.bread_title }}
+          </a>
+        {{ else }}
+          <span>{{ item.slug }}</span>
+        {{ /if }}
+      </li>
+    {{ /for }}
+  </ul>
+{{ /if }}

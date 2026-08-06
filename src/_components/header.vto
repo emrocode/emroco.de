@@ -1,0 +1,19 @@
+<header class="header">
+  <nav class="nav container">
+    <a href="/" class="nav__brand">
+      <img
+        decoding="async"
+        draggable="false"
+        sizes="144x144"
+        src="/media/img/avatar.webp"
+        onerror="this.onerror=null; this.remove();"
+        alt="Avatar de {{ about.name }}"
+      />
+    </a>
+    <div class="nav__group">
+      {{ comp.mobile_menu({ url }) }}
+      {{ comp.menu({ url, size: "large" }) }}
+      {{ comp.ui.theme_button() }}
+    </div>
+  </nav>
+</header>

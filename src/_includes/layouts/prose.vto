@@ -1,0 +1,8 @@
+---
+layout: layouts/base.vto
+---
+
+{{ comp.ui.breadcrumb({ url }) }}
+<article class="prose" {{ if title }} data-aos="fade-up" {{ /if }}>
+  {{ content |> md }}
+</article>

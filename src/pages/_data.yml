@@ -1,0 +1,5 @@
+basename: ""
+lang: es
+layout: layouts/base.vto
+templateEngine: [vto, md]
+openGraphLayout: layouts/og.jsx
