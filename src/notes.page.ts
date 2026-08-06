@@ -9,6 +9,7 @@ export default function* ({ notes }: any) {
         description: note.excerpt,
         image: `/notes/${note.slug}/index.png`,
       },
+      type: "note",
       url: `/notes/${note.slug}/`,
       title: note.title,
       content: note.content,

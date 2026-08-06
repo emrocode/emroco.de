@@ -14,9 +14,15 @@ menu:
   - key: Notas
     path: /notes/
 profiles:
+  - platform: Mail
+    icon: paper-plane-tilt
+    url: mailto:hi@emroco.de
   - platform: LinkedIn
+    icon: linkedin-logo
     url: https://linkedin.com/in/emrocode
   - platform: GitHub
+    icon: github-logo
     url: https://github.com/emrocode
   - platform: CodePen
+    icon: codepen-logo
     url: https://codepen.io/emrocode

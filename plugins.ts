@@ -11,11 +11,12 @@ import lightningcss from "lume/plugins/lightningcss.ts";
 import metas from "lume/plugins/metas.ts";
 import minify_html from "lume/plugins/minify_html.ts";
 import nav from "lume/plugins/nav.ts";
-import ogImages from "lume/plugins/og_images.ts";
+import og_images from "lume/plugins/og_images.ts";
 import resolve_urls from "lume/plugins/resolve_urls.ts";
 import robots from "lume/plugins/robots.ts";
 import seo from "lume/plugins/seo.ts";
 import sitemap from "lume/plugins/sitemap.ts";
+import feed from "lume/plugins/feed.ts";
 
 const FONT_URL =
   "https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&display=swap";
@@ -41,7 +42,7 @@ export default function () {
       .use(metas())
       .use(minify_html())
       .use(
-        ogImages({
+        og_images({
           options: {
             width: 1080,
             height: 567,
@@ -79,6 +80,22 @@ export default function () {
           },
         }),
       )
-      .use(sitemap());
+      .use(sitemap())
+      .use(
+        feed({
+          output: ["/feed/index.xml"],
+          query: "type=note",
+          info: {
+            title: "=index.title",
+            description: "=index.description",
+            lang: "=lang",
+          },
+          items: {
+            title: "=title",
+            description: "=excerpt",
+            content: "$.prose",
+          },
+        }),
+      );
   };
 }

@@ -9,7 +9,7 @@ metas:
 
 {{ comp.ui.headline({ title }) }}
 {{ layout "layouts/wrapper.vto" { style: "block", as: "list" } }}
-{{ for i, note of notes |> sort((a, b) => new Date(b.doc_ca) - new Date(a.doc_ca)) }}
+{{ for i, note of notes }}
 {{ comp.ui.list({ data: note, i }) }}
 {{ /for }}
 {{ /layout }}

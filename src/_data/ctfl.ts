@@ -15,8 +15,8 @@ const processContentfulEntries = (entryItems) => {
     const { fields, sys, metadata } = entry;
     return {
       ...fields,
-      doc_ca: sys.createdAt,
-      doc_ua: sys.updatedAt,
+      date: sys.createdAt,
+      lang: sys.locale,
       tags: metadata.tags.map((t) => tagMap.get(t.sys.id)),
     };
   });
