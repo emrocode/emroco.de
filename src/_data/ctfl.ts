@@ -1,5 +1,5 @@
 import * as ctfl from "contentful";
-import { env } from "@/utils.ts";
+import { env } from "@/utils.js";
 
 const client = ctfl.createClient({
   space: env("CTFL_SPACE_ID"),
@@ -10,7 +10,9 @@ const client = ctfl.createClient({
 const tagItems = await client.getTags();
 const tagMap = new Map(tagItems.items.map((t) => [t.sys.id, t.name]));
 
-const processContentfulEntries = (entryItems) => {
+type Entries = Awaited<ReturnType<typeof client.getEntries>>;
+
+const processContentfulEntries = (entryItems: Entries) => {
   return entryItems.items.map((entry) => {
     const { fields, sys, metadata } = entry;
     return {

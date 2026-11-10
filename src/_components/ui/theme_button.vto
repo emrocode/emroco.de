@@ -1,4 +1,8 @@
 <button class="button" data-umb="true">
-  <span class="icon icon--moon">{{ "moon" |> phosphor }}</span>
-  <span class="icon icon--sun">{{ "sun" |> phosphor }}</span>
+  <span class="icon icon--moon">
+    <img src='{{ "moon" |> icon("phosphor") }}' inline>
+  </span>
+  <span class="icon icon--sun">
+    <img src='{{ "sun" |> icon("phosphor") }}' inline>
+  </span>
 </button>

@@ -3,6 +3,9 @@ name: Publish on GitHub Pages
 on:
   push:
     branches: [main]
+  repository_dispatch:
+    types: [contentful]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -21,10 +24,12 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7
-      - uses: denoland/setup-deno@v2
+      - uses: actions/setup-node@v7
         with:
-          cache: true
-      - run: deno task build
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
           CTFL_ACCESS_TOKEN: ${{ secrets.CTFL_ACCESS_TOKEN }}
@@ -32,7 +37,7 @@ jobs:
           CTFL_SPACE_ID: ${{ secrets.CTFL_SPACE_ID }}
           REMOTE_FILE_ID: ${{ secrets.REMOTE_FILE_ID }}
           REMOTE_FILE_URL: ${{ secrets.REMOTE_FILE_URL }}
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
         with:
           path: "dist"

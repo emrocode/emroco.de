@@ -1,6 +1,6 @@
 export const env = (key: string): string => {
   try {
-    const value = Deno.env.get(key);
+    const value = process.env[key];
     if (!value) throw new Error(`Env var "${key}" is not defined`);
     return value;
   } catch (error) {

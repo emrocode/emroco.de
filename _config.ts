@@ -1,15 +1,18 @@
-import "@std/dotenv/load";
-import lume from "lume/mod.ts";
-import helpers from "@/helpers.ts";
-import plugins from "@/plugins.ts";
-import { env } from "@/utils.ts";
-import { markdown } from "@/md.ts";
+import "dotenv/config";
+import lume from "@lumeland/lume";
+import helpers from "@/helpers.js";
+import plugins from "@/plugins.js";
+import { env } from "@/utils.js";
+import { markdown } from "@/md.js";
 
 const site = lume(
   {
     src: "./src",
     dest: "./dist",
     location: new URL(env("BASE_URL")),
+    watcher: {
+      ignore: ["/dist", "/_seo-issues.json"],
+    },
   },
   { markdown },
 );
@@ -21,8 +24,8 @@ site
   .add("styles")
   .copy("assets", ".")
   .copy("npm:aos@2.3.4/dist/aos.css", "/styles/aos.css")
-  .remoteFile(env("REMOTE_FILE_ID"), env("REMOTE_FILE_URL"))
-  .process([".html"], (pages) => {
+  .remote(env("REMOTE_FILE_ID"), env("REMOTE_FILE_URL"))
+  .process([".html"], (pages: any) => {
     for (const page of pages) {
       const externalLinks = page?.document?.querySelectorAll(
         'a[href^="http"], a[href^="mailto:"]',

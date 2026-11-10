@@ -1,5 +1,5 @@
-import { full as emoji } from "npm:markdown-it-emoji@3";
-import anchor from "npm:markdown-it-anchor@9.2.1";
+import { full as emoji } from "markdown-it-emoji";
+import anchor from "markdown-it-anchor";
 
 export const markdown = {
   plugins: [emoji, anchor],

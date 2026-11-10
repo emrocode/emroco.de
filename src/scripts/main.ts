@@ -1,5 +1,5 @@
 import Umbra, { type Options } from "@emrocode/umbra";
-import { KeyboardShortcut, ViewTransitions } from "./plugins";
+import { KeyboardShortcut, ViewTransitions } from "./plugins/index.ts";
 import AOS from "aos";
 
 const options: Partial<Options> = {

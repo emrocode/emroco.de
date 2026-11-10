@@ -36,9 +36,9 @@ Proyectos destacados
         {{ if p.html_url || p.gh_url }}
           <a href="{{ p.html_url || p.gh_url }}">
             {{ if p.html_url }}
-            {{ "arrow-up-right" |> phosphor }}
+            <img src="{{ "arrow-up-right" |> icon("phosphor") }}" inline>
             {{ else }}
-            {{ "github" |> simpleicons }}
+            <img src="{{ "github" |> icon("simpleicons") }}" inline>
             {{ /if }}
           </a>
         {{ /if }}

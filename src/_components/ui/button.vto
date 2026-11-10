@@ -1,11 +1,11 @@
 {{ if href }}
   <a class="button {{ variant }}" href="{{ href }}">
-    {{ if icon }}{{ icon |> phosphor }}{{ /if }}
+    {{ if icon }}<img src='{{ icon |> icon("phosphor") }}' inline>{{ /if }}
     {{ text }}
   </a>
 {{ else }}
   <button class="button {{ variant }}" onclick="{{ callback }}">
-    {{ if icon }}{{ icon |> phosphor }}{{ /if }}
+    {{ if icon }}<img src='{{ icon |> icon("phosphor") }}' inline>{{ /if }}
     {{ text }}
   </button>
 {{ /if }}

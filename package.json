@@ -1,0 +1,47 @@
+{
+  "name": "emrocode",
+  "private": true,
+  "type": "module",
+  "allowScripts": {
+    "esbuild": false,
+    "fsevents": false,
+    "@parcel/watcher": false
+  },
+  "scripts": {
+    "serve": "lume build -s",
+    "build": "lume build"
+  },
+  "dependencies": {
+    "@emrocode/umbra": "^1.0.2",
+    "@lumeland/lume": "^4.0.2",
+    "@lumeland/plugin-base-path": "^1.0.0",
+    "@lumeland/plugin-date": "^1.0.0",
+    "@lumeland/plugin-esbuild": "^1.0.0",
+    "@lumeland/plugin-feed": "^1.0.0",
+    "@lumeland/plugin-google-fonts": "^1.0.0",
+    "@lumeland/plugin-icons": "^1.0.0",
+    "@lumeland/plugin-inline": "^1.0.0",
+    "@lumeland/plugin-lightningcss": "^1.0.0",
+    "@lumeland/plugin-metas": "^1.0.0",
+    "@lumeland/plugin-minify-html": "^1.0.0",
+    "@lumeland/plugin-nav": "^1.0.0",
+    "@lumeland/plugin-og-images": "^1.0.0",
+    "@lumeland/plugin-resolve-urls": "^1.0.0",
+    "@lumeland/plugin-robots": "^1.0.0",
+    "@lumeland/plugin-seo": "^1.0.1",
+    "@lumeland/plugin-sitemap": "^1.0.0",
+    "@lumeland/ssx": "^0.1.16",
+    "@types/aos": "^3.0.8",
+    "aos": "^2.3.4",
+    "contentful": "^11.12.7",
+    "date-fns": "^4.4.0",
+    "dotenv": "^18.0.10",
+    "markdown-it-anchor": "^9.2.1",
+    "markdown-it-emoji": "^3.0.0",
+    "shiki": "^4.6.0"
+  },
+  "devDependencies": {
+    "@types/markdown-it-emoji": "^3.0.1",
+    "@types/node": "^24.19.2"
+  }
+}

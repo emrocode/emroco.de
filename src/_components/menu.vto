@@ -20,7 +20,7 @@ MAX_PROFILES: 4
     {{ for prof of profiles |> slice(0,MAX_PROFILES) }}
       <li class="menu__item">
         <a title="{{ prof.platform }}" href="{{ prof.url }}" class="menu__link">
-          {{ prof.icon |> phosphor }}
+          <img src='{{ prof.icon |> icon("phosphor") }}' inline>
         </a>
       </li>
     {{ /for }}

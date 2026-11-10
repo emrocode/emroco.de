@@ -1,22 +1,21 @@
-import { es } from "date-fns";
-import simpleicons from "lume/icons/simpleicons.ts";
-import phosphor from "lume/icons/phosphor.ts";
-import shiki from "shiki/mod.ts";
-import shiki_lang from "shiki/plugins/lang/mod.ts";
-import base_path from "lume/plugins/base_path.ts";
-import date from "lume/plugins/date.ts";
-import esbuild from "lume/plugins/esbuild.ts";
-import google_fonts from "lume/plugins/google_fonts.ts";
-import lightningcss from "lume/plugins/lightningcss.ts";
-import metas from "lume/plugins/metas.ts";
-import minify_html from "lume/plugins/minify_html.ts";
-import nav from "lume/plugins/nav.ts";
-import og_images from "lume/plugins/og_images.ts";
-import resolve_urls from "lume/plugins/resolve_urls.ts";
-import robots from "lume/plugins/robots.ts";
-import seo from "lume/plugins/seo.ts";
-import sitemap from "lume/plugins/sitemap.ts";
-import feed from "lume/plugins/feed.ts";
+import { es } from "date-fns/locale/es";
+import icons from "@lumeland/plugin-icons";
+import inline from "@lumeland/plugin-inline";
+import shiki from "@/shiki.js";
+import base_path from "@lumeland/plugin-base-path";
+import date from "@lumeland/plugin-date";
+import esbuild from "@lumeland/plugin-esbuild";
+import google_fonts from "@lumeland/plugin-google-fonts";
+import lightningcss from "@lumeland/plugin-lightningcss";
+import metas from "@lumeland/plugin-metas";
+import minify_html from "@lumeland/plugin-minify-html";
+import nav from "@lumeland/plugin-nav";
+import og_images from "@lumeland/plugin-og-images";
+import resolve_urls from "@lumeland/plugin-resolve-urls";
+import robots from "@lumeland/plugin-robots";
+import seo from "@lumeland/plugin-seo";
+import sitemap from "@lumeland/plugin-sitemap";
+import feed from "@lumeland/plugin-feed";
 
 const FONT_URL =
   "https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&display=swap";
@@ -49,8 +48,8 @@ export default function () {
           },
         }),
       )
-      .use(simpleicons())
-      .use(phosphor())
+      .use(icons())
+      .use(inline())
       .use(resolve_urls())
       .use(robots())
       .use(
@@ -64,18 +63,14 @@ export default function () {
           },
         }),
       )
-      .use(shiki_lang())
-      .use(
-        date({
-          locales: { es },
-        }),
-      )
+      .use(date({ locales: { es } }))
       .use(
         seo({
           output: "_seo-issues.json",
           options: {
             body: {
               min: 1,
+              unit: "character",
             },
           },
         }),
